@@ -232,43 +232,40 @@
 </div>
   </section> 
   
-  <script>
-document.getElementById("contactForm").addEventListener("submit", function (e) {
+  <script>document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
+
+  const name = document.querySelector('input[name="name"]').value.trim();
+  const email = document.querySelector('input[name="email"]').value.trim();
+  const message = document.querySelector('textarea[name="message"]').value.trim();
+
+  if (!name || !email || !message) {
+    alert("Mohon lengkapi semua kolom sebelum mengirim.");
+    return;
+  }
+
+  const phoneNumber = "6285755030397";
+  const text = `Hai! Nama saya *${name}* dan saya ingin menghubungi Anda melalui form kontak di website.%0A%0ABerikut informasi saya:%0A- Nama Lengkap: ${name}%0A- Email: ${email}%0A- Pesan:%0A"${message}"%0A%0ASaya sangat menghargai waktu Anda dalam membaca pesan ini. Jika memungkinkan, saya berharap bisa segera mendapatkan tanggapan atau berdiskusi lebih lanjut.%0A%0ATerima kasih atas perhatian dan kesempatannya. Semoga harimu menyenangkan!`;
+
+  // Menghilangkan encodeURIComponent() agar tidak terjadi duplikasi encoding
+  const whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
 
   const popup = document.getElementById("popup");
   popup.style.display = "flex";
 
   this.reset();
+
+  setTimeout(() => {
+    window.open(whatsappURL, '_blank');
+  }, 1500);
 });
 
-document.getElementById("okButton").addEventListener("click", function () {
-  const popup = document.getElementById("popup");
-  popup.style.display = "none"; 
-  window.location.href = "#beranda"; 
-});
 
-
-    const toggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-    
-    document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const popup = document.getElementById("popup");
-  popup.style.display = "flex";
-
-  this.reset();
-});
-
-document.getElementById("okButton").addEventListener("click", function () {
-  const popup = document.getElementById("popup");
-  popup.style.display = "none"; 
-  window.location.href = "#contact"; 
+const toggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+toggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
 });
   </script>
   
-    </html>
+        </html>
