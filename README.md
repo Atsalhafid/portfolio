@@ -22,14 +22,16 @@
         <li><a href="#contact">Kontak</a></li>
       </ul>
     </nav>
-  </header>  <section id="beranda" class="beranda">
+  </header>  
+  
+  <section id="beranda" class="beranda">
     <div class="teks-content">
       <p class="sapa">Halo, saya</p>
       <h1 class="nama">Atsal Hafid</h1>
       <h4 class="bakat">Web Developer</h4>
       <p class="deskripsi-profil">Saya adalah seorang pengembang web yang berfokus pada desain antarmuka yang responsif dan pengalaman pengguna yang optimal.</p>
       <div class="btn-profil">
-        <button type="button" class="utama">Tentang Saya</button>
+        <button onclick="window.location.href='#tentang';" type="button" class="utama">Tentang Saya</button>
       </div>
     </div>
   </section>  <section id="tentang" class="tentang">
@@ -43,25 +45,25 @@
       </div>
       <div class="skill-tentang">
         <div class="skill-bar">
+          <span>UI/UX Design</span>
+          <div class="progress-bar">
+            <div class="progress yellow" style="width: 75%;"></div>
+          </div>
+          <span class="percent">75%</span>
+        </div>
+        <div class="skill-bar">
           <span>Photography</span>
           <div class="progress-bar">
-            <div class="progress yellow" style="width: 85%;"></div>
+            <div class="progress red" style="width: 90%;"></div>
           </div>
-          <span class="percent">85%</span>
+          <span class="percent">90%</span>
         </div>
         <div class="skill-bar">
           <span>Development</span>
           <div class="progress-bar">
-            <div class="progress red" style="width: 95%;"></div>
+            <div class="progress blue" style="width: 60%;"></div>
           </div>
-          <span class="percent">95%</span>
-        </div>
-        <div class="skill-bar">
-          <span>UI/UX Design</span>
-          <div class="progress-bar">
-            <div class="progress blue" style="width: 70%;"></div>
-          </div>
-          <span class="percent">70%</span>
+          <span class="percent">60%</span>
         </div>
       </div>
     </div><div class="group-riwayat">
@@ -154,6 +156,9 @@
             <h1>Kelas Desain</h1>
             <p>Platform interaktif untuk kursus desain UI/UX, lengkap dengan modul video dan studi kasus nyata.</p>
           </div>
+          <div class="btn-kunjungi">
+            <button class="kunjungi"><i class="fa-solid fa-arrow-right"></i>Kunjungi</button>
+          </div>
         </div>
       </div>
       <div class="item-project">
@@ -162,6 +167,9 @@
           <div class="judul-project">
             <h1>Got Talent</h1>
             <p>Aplikasi kompetisi bakat online yang memudahkan peserta mengunggah video dan mendapatkan voting juri.</p>
+          </div>
+                    <div class="btn-kunjungi">
+            <button class="kunjungi"><i class="fa-solid fa-arrow-right"></i>Kunjungi</button>
           </div>
         </div>
       </div>
@@ -172,6 +180,9 @@
             <h1>Portfolio</h1>
             <p>Website portofolio personal untuk menampilkan karya dan pengalaman dengan desain responsif.</p>
           </div>
+                    <div class="btn-kunjungi">
+            <button class="kunjungi"><i class="fa-solid fa-arrow-right"></i>Kunjungi</button>
+          </div>
         </div>
       </div>
       <div class="item-project">
@@ -181,6 +192,9 @@
             <h1>Travel</h1>
             <p>Situs travel dengan galeri destinasi wisata lengkap dan fitur booking online.</p>
           </div>
+                    <div class="btn-kunjungi">
+            <button class="kunjungi"><i class="fa-solid fa-arrow-right"></i>Kunjungi</button>
+          </div>
         </div>
       </div>
       <div class="item-project">
@@ -189,6 +203,9 @@
           <div class="judul-project">
             <h1>Toko Jam</h1>
             <p>Platform e-commerce penjualan jam tangan dengan tampilan produk interaktif dan keranjang belanja.</p>
+          </div>
+                    <div class="btn-kunjungi">
+            <button class="kunjungi"><i class="fa-solid fa-arrow-right"></i>Kunjungi</button>
           </div>
         </div>
       </div>
@@ -213,12 +230,45 @@
     <button id="okButton">Oke</button>
   </div>
 </div>
+  </section> 
+  
+  <script>
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-  </section>  <script>
+  const popup = document.getElementById("popup");
+  popup.style.display = "flex";
+
+  this.reset();
+});
+
+document.getElementById("okButton").addEventListener("click", function () {
+  const popup = document.getElementById("popup");
+  popup.style.display = "none"; 
+  window.location.href = "#beranda"; 
+});
+
+
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
-  </script>  <script src="contact.js"></script></body>
+    
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const popup = document.getElementById("popup");
+  popup.style.display = "flex";
+
+  this.reset();
+});
+
+document.getElementById("okButton").addEventListener("click", function () {
+  const popup = document.getElementById("popup");
+  popup.style.display = "none"; 
+  window.location.href = "#contact"; 
+});
+  </script>
+  
 </html>
