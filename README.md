@@ -39,7 +39,7 @@
       <h1>Tentang Saya</h1>
     </div>
     <div class="container-tentang">
-      <img src="info.jpg" alt="profilku">
+      <img src="background-utama.jpg" alt="profilku">
       <div class="box-tentang">
         <p>Saya memiliki minat besar dalam dunia teknologi, terutama dalam pengembangan web, desain antarmuka pengguna, dan fotografi sebagai hobi visual saya.</p>
       </div>
@@ -232,43 +232,54 @@
 </div>
   </section> 
   
-  <script>
-document.getElementById("contactForm").addEventListener("submit", function (e) {
+  <script>document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
+
+  const name = document.querySelector('input[name="name"]').value.trim();
+  const email = document.querySelector('input[name="email"]').value.trim();
+  const message = document.querySelector('textarea[name="message"]').value.trim();
+
+  if (!name || !email || !message) {
+    alert("Mohon lengkapi semua kolom sebelum mengirim.");
+    return;
+  }
+
+  const phoneNumber = "6285755030397";
+  const text = `Hai! Nama saya *${name}* dan saya ingin menghubungi Anda melalui form kontak di website.
+
+Berikut informasi saya:
+- Nama Lengkap: ${name}
+- Email: ${email}
+- Pesan:
+"${message}"
+
+Saya sangat menghargai waktu Anda dalam membaca pesan ini. Jika memungkinkan, saya berharap bisa segera mendapatkan tanggapan atau berdiskusi lebih lanjut.
+
+Terima kasih atas perhatian dan kesempatannya. Semoga harimu menyenangkan!`;
+
+const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
 
   const popup = document.getElementById("popup");
   popup.style.display = "flex";
 
   this.reset();
+
+setTimeout(() => {
+  window.open(whatsappURL, '_blank');
+  popup.style.display = "none"; // menutup popup setelah kirim
+}, 1500);
 });
 
 document.getElementById("okButton").addEventListener("click", function () {
-  const popup = document.getElementById("popup");
-  popup.style.display = "none"; 
-  window.location.href = "#beranda"; 
+  document.getElementById("popup").style.display = "none";
 });
 
 
-    const toggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-    
-    document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const popup = document.getElementById("popup");
-  popup.style.display = "flex";
-
-  this.reset();
-});
-
-document.getElementById("okButton").addEventListener("click", function () {
-  const popup = document.getElementById("popup");
-  popup.style.display = "none"; 
-  window.location.href = "#contact"; 
+const toggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+toggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
 });
   </script>
   
-</html>
+  </html>
