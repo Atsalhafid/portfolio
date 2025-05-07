@@ -368,6 +368,36 @@ header {
   gap: 29px;
 }
 
+.btn-kunjungi{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kunjungi{
+  height: 45px;
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-family: 'poppins';
+  font-weight: bold;
+  background-color: #f57921;
+  color: white;
+  border: none;
+}
+
+.kunjungi:hover{
+  background-color: #dd620c;
+  
+}
+
+.kunjungi i{
+  padding-right: 4px;
+}
+
 .item-project{
   width: 400px;
   padding: 10px;
@@ -539,3 +569,4 @@ form button:hover {
   }
 }
 
+  
